@@ -7,7 +7,7 @@ const englishStrings = {
   },
   options: {
     title: 'Options Menu Title',
-    hint1: 'blah blah blah'
+    hint1: 'Mike's a cunt'
   }
 };
 
