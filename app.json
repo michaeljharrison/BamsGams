@@ -1,7 +1,6 @@
 {
   "expo": {
     "sdkVersion": "26.0.0",
-    "name": "GameTrack",
-    "icon": "./appIcon.png"
+    "name": "GameTrack"
   }
 }
