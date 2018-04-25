@@ -4,7 +4,7 @@
 # @Last modified by:   guiguan
 # @Last modified time: 2018-02-26T15:32:07+11:00
 
-extends: [airbnb, plugin:flowtype/recommended]
+extends: [airbnb]
 env:
   browser: true
   node: true
@@ -63,6 +63,7 @@ rules:
   react/jsx-space-before-closing: off
   react/jsx-first-prop-new-line: off
   react/jsx-closing-bracket-location: off
+  react/jsx-filename-extension: off
   react/no-multi-comp: off
   react/no-did-mount-set-state: off
   react/prop-types: off

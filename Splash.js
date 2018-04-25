@@ -1,21 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Font } from 'expo';
-
-export default class Splash extends React.Component {
-  constructor() {
-    super();
-  }
-  componentDidMount() {}
-
-  render() {
-    return (
-      <View style={styles.background}>
-        <Text style={styles.text}> LOADING </Text>
-      </View>
-    );
-  }
-}
+import { StyleSheet, ImageBackground, Image } from 'react-native';
 
 const styles = StyleSheet.create({
   background: {
@@ -25,7 +9,28 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  text: {
-    color: '#bfbec0'
+  text: {},
+  linearGradient: {
+    position: 'absolute'
+  },
+  splashImage: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1
   }
 });
+
+export default class Splash extends React.Component {
+  componentDidMount() {}
+
+  render() {
+    return (
+      <ImageBackground
+        style={styles.splashImage}
+        source={require('./img/SplashBackground.png')}
+      >
+        <Image style={styles.text} source={require('./img/SplashText.png')} />
+      </ImageBackground>
+    );
+  }
+}

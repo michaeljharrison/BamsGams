@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, Dimensions, ImageBackground } from 'react-native';
+import { StyleSheet, Text, Dimensions, View } from 'react-native';
 import colors from './styles/colors';
 
 const maxWidth = Dimensions.get('window').width;
@@ -18,17 +18,17 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class Header extends React.Component {
+export default class Footer extends React.Component {
   componentDidMount() {}
 
   render() {
     return (
-      <ImageBackground
+      <View
         style={styles.background}
-        source={require('./img/HeaderBackground.png')}
+        source={require('./img/FooterBackground.png')}
       >
-        <Text style={styles.text}>Header</Text>
-      </ImageBackground>
+        <Text style={styles.text}>Footer</Text>
+      </View>
     );
   }
 }
