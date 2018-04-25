@@ -5,9 +5,11 @@ const englishStrings = {
   home: {
     title: 'Home'
   },
+  loading: {
+    title: 'Now Loading GameTrack...'
+  },
   options: {
-    title: 'Options Menu Title',
-    hint1: 'Mike's a cunt'
+    title: 'Options Menu Title'
   }
 };
 
