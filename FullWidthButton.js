@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    color: colors.primaryBlue
+    color: colors.primaryBlue,
+    fontFamily: 'Exo'
   }
 });
 

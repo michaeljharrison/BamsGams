@@ -5,6 +5,7 @@ import Home from './Home';
 import Splash from './Splash';
 import Header from './Header';
 import Footer from './Footer';
+import { Font } from 'expo';
 import { createStackNavigator } from 'react-navigation';
 
 const maxWidth = Dimensions.get('window').width;
@@ -39,13 +40,13 @@ export default class App extends React.Component {
     this.selectionCallback = this.selectionCallback.bind(this);
   }
   componentDidMount() {
+    Font.loadAsync({
+      Exo: require('./Fonts/Exo-Black.ttf'),
+      Exo_Bold: require('./Fonts/Exo-Bold.ttf')
+    });
     setTimeout(() => {
       this.setState({ isReady: true });
     }, 1000);
-    /*  await Font.loadAsync({
-      'Roboto': require('Fonts/Roboto.ttf'),
-      'Roboto_medium': require('Fonts/Roboto_medium.ttf'),
-    }); */
   }
 
   selectionCallback(option) {

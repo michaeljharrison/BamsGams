@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   text: {
-    color: colors.primaryBlue
+    color: colors.primaryBlue,
+    fontFamily: 'Exo'
   }
 });
 

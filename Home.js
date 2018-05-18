@@ -58,31 +58,37 @@ export default class Footer extends React.Component {
       <ScrollView style={styles.scrollView}>
         <FullWidthButton
           title={GLOBAL.BODY_STATE.HOME}
+          label="Home"
           imageSource={require('./img/farcry5.jpg')}
           onPress={this.onPressSection}
         />
         <FullWidthButton
           title={GLOBAL.BODY_STATE.WISHLIST}
+          label="Wishlist"
           imageSource={require('./img/horizon.jpg')}
           onPress={this.onPressSection}
         />
         <FullWidthButton
           title={GLOBAL.BODY_STATE.LIBRARY}
+          label="Library"
           imageSource={require('./img/seaofthieves.jpg')}
           onPress={this.onPressSection}
         />
         <FullWidthButton
           title={GLOBAL.BODY_STATE.RECOMMENDED}
+          label="Recommended"
           imageSource={require('./img/farcry5.jpg')}
           onPress={this.onPressSection}
         />
         <FullWidthButton
           title={GLOBAL.BODY_STATE.PROFILE}
+          label="Profile"
           imageSource={require('./img/farcry5.jpg')}
           onPress={this.onPressSection}
         />
         <FullWidthButton
           title={GLOBAL.BODY_STATE.SETTINGS}
+          label="Settings"
           imageSource={require('./img/farcry5.jpg')}
           onPress={this.onPressSection}
         />

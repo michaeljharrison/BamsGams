@@ -2,6 +2,9 @@
   "name": "GameTrack",
   "version": "0.1.0",
   "private": true,
+  "rnpm": {
+    "assets": ["./Fonts/"]
+  },
   "devDependencies": {
     "react-native-scripts": "1.13.2",
     "jest-expo": "26.0.0",
