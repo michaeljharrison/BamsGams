@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Dimensions } from 'react-native';
+import { StyleSheet, View, Dimensions } from 'react-native';
 import GLOBAL from './constants';
 import Home from './Home';
 import Splash from './Splash';
 import Header from './Header';
 import Footer from './Footer';
+import { createStackNavigator } from 'react-navigation';
 
 const maxWidth = Dimensions.get('window').width;
 // const maxHeight = Dimensions.get('window').height;
@@ -80,7 +81,10 @@ export default class App extends React.Component {
         <View style={styles.container}>
           <Header style={styles.header} />
           {body}
-          <Footer style={styles.footer} />
+          <Footer
+            style={styles.footer}
+            selectionCallback={this.selectionCallback}
+          />
         </View>
       );
     }

@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, Dimensions, View, ScrollView } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView } from 'react-native';
 import colors from './styles/colors';
 import FullWidthButton from './FullWidthButton';
-import { GLOBAL } from './constants';
+import GLOBAL from './constants';
 
 const maxWidth = Dimensions.get('window').width;
 const maxHeight = Dimensions.get('window').height;
@@ -49,45 +49,40 @@ export default class Footer extends React.Component {
   componentDidMount() {}
 
   onPressSection(title) {
-    switch (title) {
-      case 'Home':
-        this.props.selectionCallback(GLOBAL.BODY_STATE.HOME);
-        break;
-      default:
-        break;
-    }
+    console.log(title);
+    this.props.selectionCallback(title);
   }
 
   render() {
     return (
       <ScrollView style={styles.scrollView}>
         <FullWidthButton
-          title="Home"
+          title={GLOBAL.BODY_STATE.HOME}
           imageSource={require('./img/farcry5.jpg')}
           onPress={this.onPressSection}
         />
         <FullWidthButton
-          title="Wishlist"
+          title={GLOBAL.BODY_STATE.WISHLIST}
           imageSource={require('./img/horizon.jpg')}
           onPress={this.onPressSection}
         />
         <FullWidthButton
-          title="Library"
+          title={GLOBAL.BODY_STATE.LIBRARY}
           imageSource={require('./img/seaofthieves.jpg')}
           onPress={this.onPressSection}
         />
         <FullWidthButton
-          title="Recommended"
+          title={GLOBAL.BODY_STATE.RECOMMENDED}
           imageSource={require('./img/farcry5.jpg')}
           onPress={this.onPressSection}
         />
         <FullWidthButton
-          title="Profile"
+          title={GLOBAL.BODY_STATE.PROFILE}
           imageSource={require('./img/farcry5.jpg')}
           onPress={this.onPressSection}
         />
         <FullWidthButton
-          title="Settings"
+          title={GLOBAL.BODY_STATE.SETTINGS}
           imageSource={require('./img/farcry5.jpg')}
           onPress={this.onPressSection}
         />

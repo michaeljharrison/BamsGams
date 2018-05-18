@@ -1,23 +1,21 @@
+// @flow
 /* eslint import/no-dynamic-require: warn */
 import React from 'react';
 import {
   StyleSheet,
-  Text,
   Dimensions,
-  ImageBackground,
+  Image,
   TouchableHighlight
 } from 'react-native';
 import colors from './styles/colors';
 
-// const maxWidth = Dimensions.get('window').width;
-const maxHeight = Dimensions.get('window').height;
+const maxWidth = Dimensions.get('window').width;
+// const maxHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   background: {
-    height: maxHeight / 14 * 3,
-    alignSelf: 'stretch',
-    backgroundColor: '#bfbec0',
-    borderColor: 'black',
-    borderWidth: 1
+    height: 70,
+    width: 70,
+    alignSelf: 'stretch'
   },
 
   text: {
@@ -35,12 +33,7 @@ export default class Header extends React.Component {
           this.props.onPress(this.props.title);
         }}
       >
-        <ImageBackground
-          style={styles.background}
-          source={this.props.imageSource}
-        >
-          <Text style={styles.text}>{this.props.label}</Text>
-        </ImageBackground>
+        <Image style={styles.background} source={this.props.imageSource} />
       </TouchableHighlight>
     );
   }

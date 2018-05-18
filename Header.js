@@ -27,7 +27,7 @@ export default class Header extends React.Component {
         style={styles.background}
         source={require('./img/HeaderBackground.png')}
       >
-        <Text style={styles.text}>Header</Text>
+        <Text style={styles.text}>GameTRACK</Text>
       </ImageBackground>
     );
   }

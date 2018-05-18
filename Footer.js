@@ -1,6 +1,9 @@
+// @flow
 import React from 'react';
-import { StyleSheet, Text, Dimensions, View } from 'react-native';
+import { StyleSheet, Dimensions, View } from 'react-native';
 import colors from './styles/colors';
+import NavigationButton from './NavigationButton';
+import GLOBAL from './constants';
 
 const maxWidth = Dimensions.get('window').width;
 // const maxHeight = Dimensions.get('window').height;
@@ -19,7 +22,18 @@ const styles = StyleSheet.create({
 });
 
 export default class Footer extends React.Component {
+  constructor() {
+    super();
+    this.state = {};
+
+    this.onPressSection = this.onPressSection.bind(this);
+  }
   componentDidMount() {}
+
+  onPressSection(title) {
+    console.log(title);
+    this.props.selectionCallback(title);
+  }
 
   render() {
     return (
@@ -27,7 +41,26 @@ export default class Footer extends React.Component {
         style={styles.background}
         source={require('./img/FooterBackground.png')}
       >
-        <Text style={styles.text}>Footer</Text>
+        <NavigationButton
+          title={GLOBAL.BODY_STATE.HOME}
+          imageSource={require('./img/home_button_inactive.png')}
+          onPress={this.onPressSection}
+        />
+        <NavigationButton
+          title={GLOBAL.BODY_STATE.WISHLIST}
+          imageSource={require('./img/wishlist_button_inactive.png')}
+          onPress={this.onPressSection}
+        />
+        <NavigationButton
+          title={GLOBAL.BODY_STATE.LIBRARY}
+          imageSource={require('./img/games_button_inactive.png')}
+          onPress={this.onPressSection}
+        />
+        <NavigationButton
+          title={GLOBAL.BODY_STATE.FRIENDS}
+          imageSource={require('./img/friends_button_inactive.png')}
+          onPress={this.onPressSection}
+        />
       </View>
     );
   }
