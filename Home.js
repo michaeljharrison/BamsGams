@@ -45,6 +45,8 @@ export default class Footer extends React.Component {
     this.state = {};
 
     this.onPressSection = this.onPressSection.bind(this);
+    this.getSublabel = this.getSublabel.bind(this);
+    this.getInfoLabel = this.getInfoLabel.bind(this);
   }
   componentDidMount() {}
 
@@ -53,42 +55,74 @@ export default class Footer extends React.Component {
     this.props.selectionCallback(title);
   }
 
+  getSublabel(section) {
+    switch (section) {
+      case GLOBAL.BODY_STATE.HOME:
+        return '0 Avaliable';
+      default:
+        return '0 Avaliable';
+    }
+  }
+
+  getInfoLabel(section) {
+    switch (section) {
+      case GLOBAL.BODY_STATE.HOME:
+        return 'Information and Stats';
+      default:
+        return 'Information and Stats';
+    }
+  }
+
   render() {
     return (
       <ScrollView style={styles.scrollView}>
-        <FullWidthButton
-          title={GLOBAL.BODY_STATE.HOME}
-          label="Home"
-          imageSource={require('./img/farcry5.jpg')}
-          onPress={this.onPressSection}
-        />
+        {
+          // <FullWidthButton
+          //   title={GLOBAL.BODY_STATE.HOME}
+          //   label="Home"
+          //   sublabel={this.getSublabel(GLOBAL.BODY_STATE.HOME)}
+          //   info={this.getInfoLabel(GLOBAL.BODY_STATE.HOME)}
+          //   imageSource={require('./img/farcry5.jpg')}
+          //   onPress={this.onPressSection}
+          // />
+        }
         <FullWidthButton
           title={GLOBAL.BODY_STATE.WISHLIST}
           label="Wishlist"
+          sublabel={this.getSublabel(GLOBAL.BODY_STATE.WISHLIST)}
+          info={this.getInfoLabel(GLOBAL.BODY_STATE.WISHLIST)}
           imageSource={require('./img/horizon.jpg')}
           onPress={this.onPressSection}
         />
         <FullWidthButton
           title={GLOBAL.BODY_STATE.LIBRARY}
           label="Library"
+          sublabel={this.getSublabel(GLOBAL.BODY_STATE.LIBRARY)}
+          info={this.getInfoLabel(GLOBAL.BODY_STATE.LIBRARY)}
           imageSource={require('./img/seaofthieves.jpg')}
           onPress={this.onPressSection}
         />
         <FullWidthButton
           title={GLOBAL.BODY_STATE.RECOMMENDED}
           label="Recommended"
+          sublabel={this.getSublabel(GLOBAL.BODY_STATE.RECOMMENDED)}
+          info={this.getInfoLabel(GLOBAL.BODY_STATE.RECOMMENDED)}
           imageSource={require('./img/farcry5.jpg')}
           onPress={this.onPressSection}
         />
         <FullWidthButton
           title={GLOBAL.BODY_STATE.PROFILE}
           label="Profile"
+          sublabel={this.getSublabel(GLOBAL.BODY_STATE.PROFILE)}
+          info={this.getInfoLabel(GLOBAL.BODY_STATE.PROFILE)}
           imageSource={require('./img/farcry5.jpg')}
           onPress={this.onPressSection}
         />
         <FullWidthButton
           title={GLOBAL.BODY_STATE.SETTINGS}
           label="Settings"
+          sublabel={this.getSublabel(GLOBAL.BODY_STATE.SETTINGS)}
+          info={this.getInfoLabel(GLOBAL.BODY_STATE.SETTINGS)}
           imageSource={require('./img/farcry5.jpg')}
           onPress={this.onPressSection}
         />

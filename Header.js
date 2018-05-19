@@ -1,5 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, Dimensions, ImageBackground } from 'react-native';
+import {
+  StyleSheet,
+  Image,
+  Text,
+  Dimensions,
+  ImageBackground
+} from 'react-native';
 import colors from './styles/colors';
 
 const maxWidth = Dimensions.get('window').width;
@@ -14,8 +20,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   text: {
-    color: colors.primaryBlue,
-    fontFamily: 'Exo'
+    height: 40,
+    width: maxWidth / 1.5,
+    bottom: 0,
+    position: 'absolute'
   }
 });
 
@@ -28,7 +36,7 @@ export default class Header extends React.Component {
         style={styles.background}
         source={require('./img/HeaderBackground.png')}
       >
-        <Text style={styles.text}>GameTRACK</Text>
+        <Image style={styles.text} source={require('./img/header_text.png')} />
       </ImageBackground>
     );
   }

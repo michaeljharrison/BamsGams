@@ -42,7 +42,11 @@ export default class App extends React.Component {
   componentDidMount() {
     Font.loadAsync({
       Exo: require('./Fonts/Exo-Black.ttf'),
-      Exo_Bold: require('./Fonts/Exo-Bold.ttf')
+      Exo_Bold: require('./Fonts/Exo-Bold.ttf'),
+      Exo_Extra_Bold: require('./Fonts/Exo-ExtraBold.ttf'),
+      Exo_Medium: require('./Fonts/Exo-ExtraBold.ttf'),
+      Exo_Light: require('./Fonts/Exo-Light.ttf'),
+      Exo_Regular: require('./Fonts/Exo-Regular.ttf')
     });
     setTimeout(() => {
       this.setState({ isReady: true });
