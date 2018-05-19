@@ -1,12 +1,21 @@
+// @flow
 import React from 'react';
 import { StyleSheet, View, Dimensions } from 'react-native';
-import GLOBAL from './constants';
-import Home from './Home';
-import Splash from './Splash';
-import Header from './Header';
-import Footer from './Footer';
 import { Font } from 'expo';
-import { createStackNavigator } from 'react-navigation';
+import {
+  Home,
+  Wishlist,
+  Splash,
+  Header,
+  Footer,
+  Library,
+  Profile,
+  Recommended,
+  Friends,
+  Options
+} from './ViewIndex';
+import colors from './styles/colors';
+import GLOBAL from './constants';
 
 const maxWidth = Dimensions.get('window').width;
 // const maxHeight = Dimensions.get('window').height;
@@ -14,7 +23,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: 'blue',
+    backgroundColor: colors.backgroundPrimary,
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -62,17 +71,17 @@ export default class App extends React.Component {
       case GLOBAL.BODY_STATE.HOME:
         return <Home selectionCallback={this.selectionCallback} />;
       case GLOBAL.BODY_STATE.WISHLIST:
-        return <View />;
+        return <Wishlist />;
       case GLOBAL.BODY_STATE.LIBRARY:
-        return <View />;
+        return <Library />;
       case GLOBAL.BODY_STATE.RECOMMENDED:
-        return <View />;
+        return <Recommended />;
       case GLOBAL.BODY_STATE.FRIENDS:
-        return <View />;
+        return <Friends />;
       case GLOBAL.BODY_STATE.PROFILE:
-        return <View />;
-      case GLOBAL.BODY_STATE.OPTIONS:
-        return <View />;
+        return <Profile />;
+      case GLOBAL.BODY_STATE.SETTINGS:
+        return <Options />;
       default:
         return <View />;
     }

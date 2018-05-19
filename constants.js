@@ -6,7 +6,7 @@ const GLOBAL = {
     RECOMMENDED: 'global_body_state_recommended',
     FRIENDS: 'global_body_state_friends',
     PROFILE: 'global_body_state_profile',
-    OPTIONS: 'global_body_state_OPTIONS'
+    SETTINGS: 'global_body_state_OPTIONS'
   }
 };
 

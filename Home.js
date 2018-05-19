@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { FullWidthButton } from './ComponentIndex';
 import colors from './styles/colors';
-import FullWidthButton from './FullWidthButton';
 import GLOBAL from './constants';
 
 const maxWidth = Dimensions.get('window').width;

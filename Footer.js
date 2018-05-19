@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
 import { StyleSheet, Dimensions, View } from 'react-native';
+import { NavigationButton } from './ComponentIndex';
 import colors from './styles/colors';
-import NavigationButton from './NavigationButton';
 import GLOBAL from './constants';
 
 const maxWidth = Dimensions.get('window').width;
