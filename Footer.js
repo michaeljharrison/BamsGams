@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { StyleSheet, Dimensions, View } from 'react-native';
+import Svg from 'react-native-svg';
 import { NavigationButton } from './ComponentIndex';
 import colors from './styles/colors';
 import GLOBAL from './constants';
@@ -44,22 +45,27 @@ export default class Footer extends React.Component {
       >
         <NavigationButton
           title={GLOBAL.BODY_STATE.HOME}
-          imageSource={require('./img/home_button_inactive.png')}
+          imageSource={require('./img/icons/home_button_inactive.png')}
           onPress={this.onPressSection}
         />
         <NavigationButton
           title={GLOBAL.BODY_STATE.WISHLIST}
-          imageSource={require('./img/wishlist_button_inactive.png')}
+          imageSource={require('./img/icons/wishlist_button_inactive.png')}
           onPress={this.onPressSection}
         />
         <NavigationButton
           title={GLOBAL.BODY_STATE.LIBRARY}
-          imageSource={require('./img/games_button_inactive.png')}
+          imageSource={require('./img/icons/games_button_inactive.png')}
           onPress={this.onPressSection}
         />
         <NavigationButton
           title={GLOBAL.BODY_STATE.FRIENDS}
-          imageSource={require('./img/friends_button_inactive.png')}
+          imageSource={require('./img/icons/friends_button_inactive.png')}
+          onPress={this.onPressSection}
+        />
+        <NavigationButton
+          title={GLOBAL.BODY_STATE.SETTINGS}
+          imageSource={require('./img/icons/settings_button_inactive.png')}
           onPress={this.onPressSection}
         />
       </View>

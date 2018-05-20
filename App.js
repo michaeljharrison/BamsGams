@@ -55,7 +55,9 @@ export default class App extends React.Component {
       Exo_Extra_Bold: require('./Fonts/Exo-ExtraBold.ttf'),
       Exo_Medium: require('./Fonts/Exo-ExtraBold.ttf'),
       Exo_Light: require('./Fonts/Exo-Light.ttf'),
-      Exo_Regular: require('./Fonts/Exo-Regular.ttf')
+      Exo_Regular: require('./Fonts/Exo-Regular.ttf'),
+      Roboto: require('./Fonts/Roboto-Regular.ttf'),
+      Roboto_Medium: require('./Fonts/Roboto-Medium.ttf')
     });
     setTimeout(() => {
       this.setState({ isReady: true });
