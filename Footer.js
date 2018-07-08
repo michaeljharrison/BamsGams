@@ -33,7 +33,7 @@ export default class Footer extends React.Component {
   componentDidMount() {}
 
   onPressSection(title) {
-    console.log(title);
+    console.log('Swapping View to target - ', title);
     this.props.selectionCallback(title);
   }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { FullWidthButton } from './ComponentIndex';
+import { getUserLibraryCount } from './API.js';
 import colors from './styles/colors';
 import GLOBAL from './constants';
 
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
     width: maxWidth
   },
   section: {
-    height: maxHeight / 14 * 3,
+    height: (maxHeight / 14) * 3,
     alignSelf: 'stretch',
     backgroundColor: '#bfbec0',
     borderColor: 'black',
@@ -42,7 +43,13 @@ const styles = StyleSheet.create({
 export default class Footer extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      wishlistCount: null,
+      libraryCount: null,
+      recommendedCount: null,
+      friendCount: null,
+      notificationCount: null
+    };
 
     this.onPressSection = this.onPressSection.bind(this);
     this.getSublabel = this.getSublabel.bind(this);
@@ -51,7 +58,7 @@ export default class Footer extends React.Component {
   componentDidMount() {}
 
   onPressSection(title) {
-    console.log(title);
+    console.log('Swapping View to target - ', title);
     this.props.selectionCallback(title);
   }
 
@@ -59,6 +66,22 @@ export default class Footer extends React.Component {
     switch (section) {
       case GLOBAL.BODY_STATE.HOME:
         return '0 Avaliable';
+      case GLOBAL.BODY_STATE.LIBRARY:
+        if (!this.state.libraryCount) {
+          getUserLibraryCount().then(libraryCount => {
+            this.setState({ libraryCount });
+          });
+          return 'Loading...';
+        }
+        return (this.state.libraryCount || 0) + ' Titles';
+      case GLOBAL.BODY_STATE.WISHLIST:
+        return (this.state.wishlistCount || 0) + ' Titles';
+      case GLOBAL.BODY_STATE.RECOMMENDED:
+        return (this.state.recommendedCount || 0) + ' Titles';
+      case GLOBAL.BODY_STATE.PROFILE:
+        return (this.state.friendCount || 0) + ' Friends Online';
+      case GLOBAL.BODY_STATE.SETTINGS:
+        return (this.state.notificationCount || 0) + ' Notifications';
       default:
         return '0 Avaliable';
     }

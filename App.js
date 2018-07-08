@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { StyleSheet, View, Dimensions } from 'react-native';
+import { StyleSheet, View, Dimensions, StatusBar } from 'react-native';
 import { Font } from 'expo';
 import {
   Home,
@@ -95,6 +95,7 @@ export default class App extends React.Component {
     if (this.state.isReady) {
       return (
         <View style={styles.container}>
+          <StatusBar barStyle="light-content" />
           <Header style={styles.header} />
           {body}
           <Footer

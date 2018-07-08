@@ -1,0 +1,8 @@
+const ERROR_CODES = {
+  SUCCESS: 0,
+  LOADING: 1,
+  NOT_FOUND: 404,
+  UNKNOWN_FAILURE: 900
+};
+
+export default ERROR_CODES;

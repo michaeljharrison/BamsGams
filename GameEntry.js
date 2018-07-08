@@ -1,11 +1,10 @@
 // @flow
 import React from 'react';
 import { StyleSheet, Text, Dimensions, ScrollView } from 'react-native';
-import { FullWidthButton } from './ComponentIndex';
+import { FullWidthImage, Options } from './ComponentIndex';
 import colors from './styles/colors';
-import { getUserLibrary } from './API.js';
+import { getBasicGameInformation } from './API.js';
 import ERROR_CODES from './ErrorCodes.js';
-import { GameEntry } from './ViewIndex.js';
 // import GLOBAL from './constants';
 
 const maxWidth = Dimensions.get('window').width;
@@ -31,52 +30,53 @@ const styles = StyleSheet.create({
     borderWidth: 1
   }
 });
-
-export default class Library extends React.Component {
+export default class GameEntry extends React.Component {
   constructor() {
     super();
+
     this.state = {
+      gameId: null,
+      gameInformation: null,
       errorCode: ERROR_CODES.LOADING,
-      userLibrary: [],
-      selectedGame: null
+      errorMessage: null
     };
   }
 
   componentDidMount() {
-    getUserLibrary()
-      .then(userLibrary => {
-        this.setState({ userLibrary });
+    // Initialize Component
+    this.setState({ gameId: this.props.gameId });
+
+    // Fetch game information from API:
+    getBasicGameInformation(this.props.gameId)
+      .then(gameInformation => {
+        this.setState({ gameInformation });
         this.setState({ errorCode: ERROR_CODES.SUCCESS });
       })
       .catch(error => {
-        this.state.setState({ errorCode: error });
-        console.error('Error fetching user Library: ', error);
+        this.setState({ errorCode: ERROR_CODES.UNKNOWN_FAILURE });
+        this.setState({ errorMessage: error });
       });
   }
 
   render() {
-    if (this.state.selectedGame) {
-      return <GameEntry gameId={this.state.selectedGame} />;
-    }
     switch (this.state.errorCode) {
       case ERROR_CODES.SUCCESS:
         return (
           <ScrollView style={styles.scrollView}>
-            {this.state.userLibrary.map(game => {
-              return (
-                <FullWidthButton
-                  title={game.title}
-                  label={game.title}
-                  key={game.title}
-                  sublabel={game.developer}
-                  info={game.quickFacts.releaseDate}
-                  imageSource={require('./img/gow2.png')}
-                  onPress={() => {
-                    this.setState({ selectedGame: game.title });
-                  }}
-                />
-              );
-            })}
+            <FullWidthImage
+              title={this.state.gameInformation.title}
+              label={this.state.gameInformation.title.toUpperCase()}
+              key={this.state.gameInformation.title}
+              sublabel={
+                this.state.gameInformation.developer +
+                ' - ' +
+                this.state.gameInformation.publisher
+              }
+              info={this.state.gameInformation.quickFacts.releaseDate}
+              imageSource={require('./img/gow2.png')}
+              hideOverlay
+            />
+            <Options />
           </ScrollView>
         );
       case ERROR_CODES.LOADING:

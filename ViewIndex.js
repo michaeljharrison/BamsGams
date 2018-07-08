@@ -8,6 +8,7 @@ import Friends_ from './Friends';
 import Recommended_ from './Recommended';
 import Splash_ from './Splash';
 import Wishlist_ from './Wishlist';
+import GameEntry_ from './GameEntry';
 
 export const Footer = Footer_;
 export const Header = Header_;
@@ -19,3 +20,4 @@ export const Friends = Friends_;
 export const Recommended = Recommended_;
 export const Splash = Splash_;
 export const Wishlist = Wishlist_;
+export const GameEntry = GameEntry_;

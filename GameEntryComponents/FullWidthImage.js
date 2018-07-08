@@ -5,16 +5,15 @@ import {
   Text,
   Dimensions,
   ImageBackground,
-  Image,
-  TouchableHighlight
+  Image
 } from 'react-native';
-import colors from './styles/colors';
+import colors from '../styles/colors';
 
 const maxWidth = Dimensions.get('window').width;
 const maxHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   background: {
-    height: (maxHeight / 14) * 3,
+    height: (maxHeight / 14) * 4,
     backgroundColor: 'transparent',
     alignSelf: 'stretch',
     borderColor: 'black',
@@ -24,22 +23,24 @@ const styles = StyleSheet.create({
   text: {
     color: colors.white,
     fontFamily: 'Exo_Extra_Bold',
-    fontSize: 42
+    fontSize: 32,
+    alignSelf: 'center'
   },
 
   subtext: {
-    color: colors.white,
+    color: colors.fontSecondary,
     fontFamily: 'Exo_Regular',
-    fontSize: 18
+    fontSize: 18,
+    alignSelf: 'center'
   },
 
   info: {
     color: colors.white,
     fontFamily: 'Exo_Regular',
-    fontSize: 22,
+    fontSize: 18,
     position: 'absolute',
     bottom: 0,
-    alignSelf: 'flex-end'
+    alignSelf: 'center'
   },
   overlay: {
     position: 'absolute',
@@ -48,38 +49,32 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     width: maxWidth,
-    height: (maxHeight / 14) * 3,
+    height: (maxHeight / 14) * 4,
     opacity: 0.8
   }
 });
 
-export default class FullWidthButton extends React.Component {
+export default class FullWidthImage extends React.Component {
   componentDidMount() {}
 
   render() {
     return (
-      <TouchableHighlight
-        onPress={() => {
-          this.props.onPress(this.props.title);
-        }}
+      <ImageBackground
+        style={styles.background}
+        source={this.props.imageSource}
       >
-        <ImageBackground
-          style={styles.background}
-          source={this.props.imageSource}
-        >
+        {this.props.hideOverlay && (
           <Image
             style={styles.overlay}
-            source={require('./img/background_gradient.png')}
+            source={require('../img/background_gradient.png')}
           />
-          <Text style={styles.text}>{this.props.label}</Text>
-          {this.props.sublabel && (
-            <Text style={styles.subtext}>{this.props.sublabel}</Text>
-          )}
-          {this.props.info && (
-            <Text style={styles.info}>{this.props.info}</Text>
-          )}
-        </ImageBackground>
-      </TouchableHighlight>
+        )}
+        <Text style={styles.text}>{this.props.label}</Text>
+        {this.props.sublabel && (
+          <Text style={styles.subtext}>{this.props.sublabel}</Text>
+        )}
+        {this.props.info && <Text style={styles.info}>{this.props.info}</Text>}
+      </ImageBackground>
     );
   }
 }
