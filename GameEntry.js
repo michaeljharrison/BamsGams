@@ -1,6 +1,8 @@
 // @flow
 import React from 'react';
-import { StyleSheet, Text, Dimensions, ScrollView } from 'react-native';
+import { View, StyleSheet, Text, Dimensions, ScrollView } from 'react-native';
+import Collapsible from 'react-native-collapsible';
+import Accordion from 'react-native-collapsible/Accordion';
 import { FullWidthImage, Options } from './ComponentIndex';
 import colors from './styles/colors';
 import { getBasicGameInformation } from './API.js';
@@ -56,6 +58,36 @@ export default class GameEntry extends React.Component {
         this.setState({ errorCode: ERROR_CODES.UNKNOWN_FAILURE });
         this.setState({ errorMessage: error });
       });
+
+      // Generate Accordion Sections
+
+    this._renderSectionTitle = this._renderSectionTitle.bind(this);
+    this._renderHeader = this._renderHeader.bind(this);
+    this._renderContent = this._renderContent.bind(this);
+  }
+
+  _renderSectionTitle(section) {
+    return (
+      <View>
+        <Text>{section.content}</Text>
+      </View>
+    );
+  }
+
+  _renderHeader(section) {
+    return (
+      <View>
+        <Text>{section.title}</Text>
+      </View>
+    );
+  }
+
+  _renderContent(section) {
+    return (
+      <View>
+        <Text>{section.content}</Text>
+      </View>
+    );
   }
 
   render() {
@@ -77,6 +109,12 @@ export default class GameEntry extends React.Component {
               hideOverlay
             />
             <Options />
+            <Accordion
+              sections={['Title']}
+              renderSectionTitle={this._renderSectionTitle}
+              renderHeader={this._renderHeader}
+              renderContent={this._renderContent}
+            />
           </ScrollView>
         );
       case ERROR_CODES.LOADING:
